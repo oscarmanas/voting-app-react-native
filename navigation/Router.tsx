@@ -15,13 +15,6 @@ export default function Router() {
             <Stack.Navigator>
                 <>
                     <Stack.Screen
-                        name={"Login"}
-                        component={LoginScreen}
-                        options={{
-                            headerShown: false
-                        }}
-                    />
-                    <Stack.Screen
                         name={"Law"}
                         component={LawScreen}
                         options={{

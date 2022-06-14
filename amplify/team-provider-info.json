@@ -10,6 +10,11 @@
       "StackName": "amplify-pranyesappreact-dev-182827",
       "StackId": "arn:aws:cloudformation:eu-west-1:155231157411:stack/amplify-pranyesappreact-dev-182827/05fd0aa0-ebff-11ec-860b-0265f730ebed",
       "AmplifyAppId": "d2kf16er6o5zu5"
+    },
+    "categories": {
+      "auth": {
+        "pranyesappreact16cad0d3": {}
+      }
     }
   }
 }

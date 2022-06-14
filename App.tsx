@@ -1,11 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Router from './navigation/Router';
-import { Amplify } from 'aws-amplify'
-import awsconfig from './aws-exports'
-Amplify.configure(awsconfig)
+import { withAuthenticator } from 'aws-amplify-react-native';
 
-export default function App() {
+function App() {
   
   return (
     <SafeAreaProvider>
@@ -14,3 +12,5 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
+
+export default withAuthenticator(App);
