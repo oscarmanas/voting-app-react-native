@@ -3,10 +3,30 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from '../../hooks/styles';
 import LawComponent from '../../components/LawComponent';
+import { API, graphqlOperation } from 'aws-amplify';
+import { listTodos } from '../../src/graphql/queries'
 
 export default function LawScreen({ navigation }: any) {
 
   const [lawsData, setLawsData] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+
+        const postResult = await API.graphql(
+          graphqlOperation(listTodos)
+        )
+
+        setLawsData(postResult.data.listTodos.items)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+
+    fetchPosts();
+  }, [])
+  
 
   return (
     <SafeAreaView style={styles.wrapper}>

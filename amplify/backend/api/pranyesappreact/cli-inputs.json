@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "pranyesappreact",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/oscarmanashernandez/pranyes-app/amplify/backend/api/pranyesappreact/schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    }
+  }
+}
