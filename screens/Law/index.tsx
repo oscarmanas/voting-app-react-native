@@ -1,33 +1,26 @@
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
-//import { useNavigation } from '@react-navigation/native';
-import LawComponent from '../../components/LawComponent';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from '../../hooks/styles';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../core/Config';
+import LawComponent from '../../components/LawComponent';
 
 export default function LawScreen({ navigation }: any) {
 
-
-  const laws = doc(db, "Laws");
-
-  getDoc(laws)
- 
+  const [lawsData, setLawsData] = useState([]);
 
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>
-        {/* <FlatList
-          data={data}
+        <FlatList
+          data={lawsData}
           renderItem={({ item }) => <LawComponent info={item} />}
-          keyExtractor={item => item.id.toString()}
+          //keyExtractor={item => item.id.toString()}
           ListHeaderComponent={
             <View style={styles.title}>
               <Text style={styles.text}>Lleis vigents</Text>
             </View>
           }
-        /> */}
+        />
       </View>
       <TouchableOpacity
         onPress={() => navigation.navigate("NewLaw")}

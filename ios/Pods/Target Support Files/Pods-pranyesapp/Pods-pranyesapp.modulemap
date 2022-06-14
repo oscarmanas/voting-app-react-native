@@ -1,0 +1,6 @@
+module Pods_pranyesapp {
+  umbrella header "Pods-pranyesapp-umbrella.h"
+
+  export *
+  module * { export * }
+}

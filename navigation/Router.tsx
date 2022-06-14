@@ -32,7 +32,10 @@ export default function Router() {
                         name={"DetailLaw"}
                         component={LawDetailScreen}
                         options={{
-                            headerShown: false
+                            title: ``,
+                            headerTintColor: 'purple',
+                            headerBackTitle: `tornar`,
+                            headerStyle: { backgroundColor: '#F2F2F2' },
                         }}
                     />
                     <Stack.Screen

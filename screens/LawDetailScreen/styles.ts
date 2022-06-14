@@ -5,15 +5,27 @@ export const styles = StyleSheet.create({
         flex: 1,
     },
     title: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        marginHorizontal: 20,
+        marginVertical: 10
     },
     titleText: {
         fontSize: 20,
         fontWeight: 'bold'
     },
-    container: {
-        flex: 1
-    }
+    description: {
+        marginHorizontal: 20
+    },
+    button: {
+        width: '100%',
+        height: 50,
+        justifyContent: 'center',
+        backgroundColor: '#832ba9',
+        alignItems: 'center'
+    },
+    textButton: {
+        fontSize: 15,
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center'
+    },
 });

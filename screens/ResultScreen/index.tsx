@@ -3,37 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from '../../hooks/styles';
 import Speedometer from 'react-native-speedometer-chart';
-import { db } from '../../core/Config';
-import { doc, setDoc } from 'firebase/firestore';
-import {autoId} from "@google-cloud/firestore/build/src/util";
 
 export default function ResultScreen({name, description, pickerType, today, expiration, navigation}:any) {
 
   const [result, setResult] = useState();
   const [participation, setParticipation] = useState();
-  const id = Math.random() * (1000000 - 0);
-
-  const setLaw = () => {
-    const law = doc(db, "Laws", id);
-
-    const lawData = {
-      "name": name,
-      "description": description,
-      "type": pickerType,
-      "creation": today,
-      "expiration": expiration,
-      "participation": participation,
-      "result": result
-    }
-
-    setDoc(law, lawData)
-    .then(() =>{
-      alert("Llei proposada");
-    })
-    .catch((error) =>{
-      alert(error.message);
-    })
-  }
 
   const filter = () => {
     let participation = Math.random() * (100 - 0) + 0;
@@ -53,7 +27,7 @@ export default function ResultScreen({name, description, pickerType, today, expi
     if (result > 49.99) {
       Alert.alert("Llei Aprovada", `La llei ha estat aprovada pel ${result}% dels vots.`)
       setResult(result);
-      setLaw();
+      //setLaw();
     } else {
       Alert.alert("Llei Rebutjada", `La llei ha estat rebutjada pel ${result}% dels vots.`)
       setResult(result);
