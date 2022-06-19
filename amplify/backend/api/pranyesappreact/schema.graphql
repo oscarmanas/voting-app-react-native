@@ -9,8 +9,8 @@ type Todo @model {
   description: String!
   type: String!
 
-  today: Float!
-  expiration: Float!
+  today: String!
+  expiration: String!
   participation: Float!
   result: Float!
 }

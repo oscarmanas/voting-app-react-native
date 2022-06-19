@@ -8,7 +8,6 @@ export default function LawDetailScreen({ route }) {
 
   const navigation = useNavigation();
   const { info } = route.params;
-  console.log(info)
 
   return (
     <View>

@@ -5,12 +5,15 @@ import { styles } from '../../hooks/styles';
 import LawComponent from '../../components/LawComponent';
 import { API, graphqlOperation } from 'aws-amplify';
 import { listTodos } from '../../src/graphql/queries'
+import { useIsFocused } from '@react-navigation/native';
 
 export default function LawScreen({ navigation }: any) {
 
   const [lawsData, setLawsData] = useState([]);
   const [vigents, setVigents] = useState(true);
   const [revocades, setRevocades] = useState(false);
+
+  const is_focus = useIsFocused();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -22,12 +25,12 @@ export default function LawScreen({ navigation }: any) {
 
         setLawsData(postResult.data.listTodos.items)
       } catch (e) {
-        console.log(e)
+        alert(e);
       }
     }
 
     fetchPosts();
-  }, [])
+  }, [is_focus])
 
 
   return (

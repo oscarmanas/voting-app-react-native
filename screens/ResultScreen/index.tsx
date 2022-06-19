@@ -3,50 +3,55 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from '../../hooks/styles';
 import Speedometer from 'react-native-speedometer-chart';
-import { DataStore } from 'aws-amplify';
+import { graphqlOperation, API } from 'aws-amplify';
+import { createTodo } from '../../src/graphql/mutations';
 
-export default function ResultScreen({ name, description, pickerType, today, expiration, navigation }: any) {
+export default function ResultScreen({ navigation, route }: any) {
 
+  const {name, description, pickerType, today, expiration,} = route.params;
   const [result, setResult] = useState();
   const [participation, setParticipation] = useState();
 
   const filter = () => {
     let participation = Math.random() * (100 - 0) + 0;
-    participation = participation.toFixed(2);
+    participation = participation.toFixed(0);
     if (participation > 59.99) {
       setParticipation(participation)
-      referendum();
+      referendum(participation);
     } else {
       setParticipation(participation)
       Alert.alert("Ups...", `La teva participació ha estat de ${participation}% com no ha superat el 60% de la participació ha quedat invalidada.`)
     }
   };
 
-  const referendum = () => {
+  const referendum = (participation) => {
     let result = Math.random() * (100 - 0) + 0;
-    result = result.toFixed(2);
+    result = result.toFixed(0);
     if (result > 49.99) {
       Alert.alert("Llei Aprovada", `La llei ha estat aprovada pel ${result}% dels vots.`)
       setResult(result);
-      setLaw();
+      setLaw(result, participation);
     } else {
       Alert.alert("Llei Rebutjada", `La llei ha estat rebutjada pel ${result}% dels vots.`)
       setResult(result);
     }
   }
 
-  const setLaw = async () => {
-    await DataStore.save(
-      new Post({
-        title: name,
+  const setLaw = async (resultPa, participationPa) => {
+    try {
+      const newLaw = {
+        name: name,
         description: description,
         type: pickerType,
         today: today,
         expiration: expiration,
-        result: result,
-        participation: participation
-      })
-    );
+        participation: participationPa.toString(),
+        result: resultPa.toString()
+      }
+      await API.graphql(graphqlOperation(createTodo, { input: newLaw }))
+    } catch(e) {
+      alert(e)
+    }
   }
 
   useEffect(() => {
