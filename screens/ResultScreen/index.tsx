@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from '../../hooks/styles';
 import Speedometer from 'react-native-speedometer-chart';
+import { DataStore } from 'aws-amplify';
 
-export default function ResultScreen({name, description, pickerType, today, expiration, navigation}:any) {
+export default function ResultScreen({ name, description, pickerType, today, expiration, navigation }: any) {
 
   const [result, setResult] = useState();
   const [participation, setParticipation] = useState();
@@ -27,11 +28,25 @@ export default function ResultScreen({name, description, pickerType, today, expi
     if (result > 49.99) {
       Alert.alert("Llei Aprovada", `La llei ha estat aprovada pel ${result}% dels vots.`)
       setResult(result);
-      //setLaw();
+      setLaw();
     } else {
       Alert.alert("Llei Rebutjada", `La llei ha estat rebutjada pel ${result}% dels vots.`)
       setResult(result);
     }
+  }
+
+  const setLaw = async() => {
+    await DataStore.save(
+      new Post({
+        title: name,
+        description: description,
+        type: pickerType,
+        today: today,
+        expiration: expiration,
+        result: result,
+        participation: participation
+      })
+    );
   }
 
   useEffect(() => {
@@ -40,7 +55,7 @@ export default function ResultScreen({name, description, pickerType, today, expi
 
   return (
     <SafeAreaView style={styles.wrapper}>
-      <View style={[styles.container, {justifyContent: 'center'}]}>
+      <View style={[styles.container, { justifyContent: 'center' }]}>
         <View style={styles.chart}>
           <Speedometer
             value={result}

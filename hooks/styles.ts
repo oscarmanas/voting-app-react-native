@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
         width: '100%',
         height: 50,
         justifyContent: 'center',
-        backgroundColor: '#832ba9',
+        backgroundColor: '#fa4848',
         alignItems: 'center'
     },
     textButton: {
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center'
     },
-    inputs:{
+    inputs: {
         //backgroundColor: 'lightgray'
     },
     imageCenter: {
@@ -42,5 +42,38 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 20
-    }
+    },
+    pressableOn: {
+        backgroundColor: '#fa4848',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5
+    },
+    pressableOff: {
+        backgroundColor: 'transparent',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5
+    },
+    textOn: {
+        fontWeight: 'bold',
+        color: 'white',
+        fontSize: 17
+    },
+    textOff: {
+        fontWeight: 'bold',
+        color: 'gray',
+        fontSize: 17
+    },
+    pressableCreate: {
+        marginTop: 30,
+        paddingHorizontal: 40,
+        height: 40,
+        backgroundColor: '#fa4848',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10
+    },
 });

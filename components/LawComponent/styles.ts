@@ -2,17 +2,13 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
     container: {
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        flexDirection: 'row',
-        margin: 15
+        margin: 20,
+        backgroundColor: 'white',
+        borderRadius: 10
     },
-    containerRight:{
-        marginLeft: 10,
-        width: '20%',
-    },
-    containerLeft: {
-        width: '80%'
+    cardContainer: {
+        padding: 20,
+        justifyContent: 'space-between'
     },
     titleText: {
         fontSize: 20,

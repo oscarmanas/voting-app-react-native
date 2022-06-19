@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import LoginScreen from '../screens/LoginScreen';
 import NewLawScreen from '../screens/NewLawScreen';
 import ResultScreen from '../screens/ResultScreen';
 import LawDetailScreen from '../screens/LawDetailScreen';
@@ -18,7 +17,11 @@ export default function Router() {
                         name={"Law"}
                         component={LawScreen}
                         options={{
-                            headerShown: false
+                            title: `Lleis`,
+                            headerTintColor: 'black',
+                            headerStyle: { backgroundColor: '#F2F2F2' },
+                            headerTitleStyle: { fontSize: 22 },
+                            headerShadowVisible: false
                         }}
                     />
                     <Stack.Screen
@@ -29,13 +32,18 @@ export default function Router() {
                             headerTintColor: 'purple',
                             headerBackTitle: `tornar`,
                             headerStyle: { backgroundColor: '#F2F2F2' },
+                            headerShadowVisible: false
                         }}
                     />
                     <Stack.Screen
                         name={"NewLaw"}
                         component={NewLawScreen}
                         options={{
-                            headerShown: false
+                            title: ``,
+                            headerTintColor: 'purple',
+                            headerBackTitle: `tornar`,
+                            headerStyle: { backgroundColor: '#F2F2F2' },
+                            headerShadowVisible: false
                         }}
                     />
                     <Stack.Screen
