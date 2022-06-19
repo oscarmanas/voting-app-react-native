@@ -356,8 +356,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nanopranyes.nanopranyes";
-				PRODUCT_NAME = "Nanopranyes";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanopranyes.nanopranyes;
+				PRODUCT_NAME = NanoPranyes;
 				SWIFT_OBJC_BRIDGING_HEADER = "pranyesapp/pranyesapp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -382,8 +382,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nanopranyes.nanopranyes";
-				PRODUCT_NAME = "Nanopranyes";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanopranyes.nanopranyes;
+				PRODUCT_NAME = NanoPranyes;
 				SWIFT_OBJC_BRIDGING_HEADER = "pranyesapp/pranyesapp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
