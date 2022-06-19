@@ -132,7 +132,7 @@ android {
     }
 
     defaultConfig {
-        applicationId 'com.pranyes.pranyes'
+        applicationId 'com.nanopranyes.nanopranyes'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

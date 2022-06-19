@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: '#F2F2F2'
     },
     title: {
         flex: 1,
@@ -33,10 +33,6 @@ export const styles = StyleSheet.create({
     },
     inputs: {
         //backgroundColor: 'lightgray'
-    },
-    imageCenter: {
-        justifyContent: 'center',
-        alignItems: 'center'
     },
     chart: {
         justifyContent: 'center',

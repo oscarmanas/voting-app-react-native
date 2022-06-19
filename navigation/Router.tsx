@@ -5,8 +5,11 @@ import NewLawScreen from '../screens/NewLawScreen';
 import ResultScreen from '../screens/ResultScreen';
 import LawDetailScreen from '../screens/LawDetailScreen';
 import LawScreen from '../screens/Law';
+import { Pressable } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 
 export default function Router() {
+
     const Stack = createNativeStackNavigator();
 
     return (
@@ -27,24 +30,47 @@ export default function Router() {
                     <Stack.Screen
                         name={"DetailLaw"}
                         component={LawDetailScreen}
-                        options={{
+                        options={({navigation}) => ({
                             title: ``,
-                            headerTintColor: 'purple',
-                            headerBackTitle: `tornar`,
+                            headerTintColor: 'black',
+                            headerBackTitle: ``,
                             headerStyle: { backgroundColor: '#F2F2F2' },
-                            headerShadowVisible: false
-                        }}
+                            headerShadowVisible: false,
+                            headerLeft: () => (
+                                <Pressable
+                                  style={{
+                                    backgroundColor: 'black',
+                                    padding: 10,
+                                    borderRadius: 10
+                                  }}
+                                  onPress={() => navigation.goBack() }>
+                                  <AntDesign name="left" size={14} color="white" />
+                                </Pressable>
+                              ),
+                        })}
                     />
                     <Stack.Screen
                         name={"NewLaw"}
                         component={NewLawScreen}
-                        options={{
+                        options={({navigation}) => ({
                             title: ``,
-                            headerTintColor: 'purple',
-                            headerBackTitle: `tornar`,
+                            headerTintColor: 'white',
+                            headerBackTitle: ``,
                             headerStyle: { backgroundColor: '#F2F2F2' },
-                            headerShadowVisible: false
-                        }}
+                            headerTitleStyle: { fontSize: 22 },
+                            headerShadowVisible: false,
+                            headerLeft: () => (
+                                <Pressable
+                                  style={{
+                                    backgroundColor: 'black',
+                                    padding: 10,
+                                    borderRadius: 10
+                                  }}
+                                  onPress={() => navigation.goBack() }>
+                                  <AntDesign name="left" size={14} color="white" />
+                                </Pressable>
+                              ),
+                        })}
                     />
                     <Stack.Screen
                         name={"Result"}

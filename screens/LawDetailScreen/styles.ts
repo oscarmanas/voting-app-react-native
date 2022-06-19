@@ -28,4 +28,13 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center'
     },
+    pressableCreate: {
+        marginTop: 30,
+        paddingHorizontal: 40,
+        height: 40,
+        backgroundColor: '#fa4848',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10
+    },
 });

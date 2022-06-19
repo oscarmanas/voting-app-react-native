@@ -1,4 +1,4 @@
-package com.pranyes.pranyes;
+package com.nanopranyes.nanopranyes;
 
 import android.os.Build;
 import android.os.Bundle;

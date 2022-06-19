@@ -35,7 +35,7 @@ export default function ResultScreen({ name, description, pickerType, today, exp
     }
   }
 
-  const setLaw = async() => {
+  const setLaw = async () => {
     await DataStore.save(
       new Post({
         title: name,
@@ -66,8 +66,6 @@ export default function ResultScreen({ name, description, pickerType, today, exp
             showPercent
             showText
             text="A favor"
-            textStyle={{ color: 'green' }}
-            percentStyle={{ color: 'green' }}
           />
         </View>
         <View style={styles.chart}>
@@ -83,12 +81,14 @@ export default function ResultScreen({ name, description, pickerType, today, exp
           />
         </View>
       </View>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Law")}
-        style={styles.button}
-      >
-        <Text style={styles.textButton}>Fet</Text>
-      </TouchableOpacity>
+      <View style={{ backgroundColor: '#F2F2F2', justifyContent: 'center', alignItems: 'center', padding: 20, width: '100%' }}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Law")}
+          style={styles.pressableCreate}
+        >
+          <Text style={styles.textButton}>Finalitzar</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   )
 }

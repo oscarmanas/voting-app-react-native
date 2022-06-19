@@ -1,9 +1,8 @@
 import { Text, TouchableOpacity, View } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from '../../hooks/styles';
 import { Input } from 'react-native-elements';
-import { Octicons } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
 
 export default function NewLawScreen({ navigation }: any) {
@@ -18,18 +17,15 @@ export default function NewLawScreen({ navigation }: any) {
 
   const check = () => {
     if (name != "" && description != "" && pickerType != "") {
-      navigation.navigate('Result', {name: name, description: description, pickerType: pickerType, today: today, expiration: expiration});
+      navigation.navigate('Result', { name: name, description: description, pickerType: pickerType, today: today, expiration: expiration });
     } else {
       alert("Has deixat un o més camps en blanc");
     }
   }
 
   return (
-    <SafeAreaView style={styles.wrapper}>
-      <View style={styles.container}>
-        <View style={styles.imageCenter}>
-          <Octicons name="law" size={55} color="black" style={{ borderWidth: 1, borderRadius: 10, padding: 25, marginBottom: 10 }} />
-        </View>
+    <View>
+      <View style={{ backgroundColor: 'white', margin: 20, borderRadius: 10 }}>
         <Input
           placeholder={"Nom de la llei"}
           onChangeText={(text) => setName(text)}
@@ -63,27 +59,31 @@ export default function NewLawScreen({ navigation }: any) {
           <Picker.Item label={"Exteriors"} value={"Foreign"} style={{ fontSize: 17 }} />
           <Picker.Item label={"Impost"} value={"Tax"} style={{ fontSize: 17 }} />
         </Picker>
-        <Text>Creació: </Text>
-        <Input
-          value={today}
-          editable={false}
-          style={styles.inputs}
-          inputContainerStyle={{ borderBottomWidth: 0 }}
-        />
-        <Text>Expiració: </Text>
-        <Input
-          value={expiration}
-          editable={false}
-          style={styles.inputs}
-          inputContainerStyle={{ borderBottomWidth: 0 }}
-        />
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: 'white', margin: 12 }}>
+          <View style={{ justifyContent: 'center' }}>
+            <Text style={{ fontWeight: 'bold', color: 'gray', fontSize: 15 }}>Creació:</Text>
+          </View>
+          <View style={{ justifyContent: 'center', width: 120, alignItems: 'center' }}>
+            <Text style={{ fontWeight: 'bold', color: 'black', fontSize: 17 }}>{today}</Text>
+          </View>
+        </View>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: 'white', margin: 12 }}>
+          <View style={{ justifyContent: 'center' }}>
+            <Text style={{ fontWeight: 'bold', color: 'gray', fontSize: 15 }}>Expiració:</Text>
+          </View>
+          <View style={{ justifyContent: 'center', width: 120, alignItems: 'center' }}>
+            <Text style={{ fontWeight: 'bold', color: 'black', fontSize: 17 }}>{expiration}</Text>
+          </View>
+        </View>
       </View>
-      <TouchableOpacity
-        onPress={() => check()}
-        style={styles.button}
-      >
-        <Text style={styles.textButton}>Votació</Text>
-      </TouchableOpacity>
-    </SafeAreaView>
+      <View style={{ backgroundColor: '#F2F2F2', justifyContent: 'center', alignItems: 'center', padding: 20, width: '100%' }}>
+        <TouchableOpacity
+          onPress={() => check()}
+          style={styles.pressableCreate}
+        >
+          <Text style={styles.textButton}>Votació</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   )
 }
